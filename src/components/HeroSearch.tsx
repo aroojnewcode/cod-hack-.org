@@ -18,7 +18,7 @@ export function HeroSearch({
   value,
   onChange,
   submitTo = 'forums',
-  placeholder = 'Search DayZ Cheats…',
+  placeholder = 'Search COD Hack…',
   autoFocus = false,
   className = '',
 }: HeroSearchProps) {
@@ -42,13 +42,12 @@ export function HeroSearch({
     const term = q.trim().toLowerCase()
     if (!term) return []
     const cheatAliases = [
-      'dayz cheats',
-      'dayz cheat',
-      'dayz hacks',
-      'dayz hack',
-      'dayz standalone cheats',
-      'dayzhacks',
-      'cheats',
+      'call of duty hack',
+      'cod hack',
+      'cod hacks',
+      'warzone hack',
+      'warzone cheats',
+      'codhack',
     ]
     if (cheatAliases.some((a) => a.includes(term) || term.includes(a))) {
       return GAMES.slice(0, 1)
@@ -73,25 +72,28 @@ export function HeroSearch({
   function submit(e?: SyntheticEvent) {
     e?.preventDefault()
     const term = q.trim()
+    setOpen(false)
+
+    if (submitTo === 'filter') {
+      const params = new URLSearchParams(window.location.search)
+      if (term) params.set('q', term)
+      else params.delete('q')
+      const next = params.toString()
+      window.history.replaceState(null, '', next ? `/forums?${next}` : '/forums')
+      document.getElementById('forum-results')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      return
+    }
+
     const exact = GAMES.find(
       (g) =>
         g.name.toLowerCase() === term.toLowerCase() ||
         g.slug === term.toLowerCase().replace(/\s+/g, '-'),
     )
-    if (exact) {
+    if (exact || matches.length === 1) {
       goToHome()
       return
     }
-    if (matches.length === 1) {
-      goToHome()
-      return
-    }
-    if (submitTo === 'forums') {
-      setOpen(false)
-      window.location.assign(term ? `/forums?q=${encodeURIComponent(term)}` : '/forums')
-      return
-    }
-    setOpen(false)
+    window.location.assign(term ? `/forums?q=${encodeURIComponent(term)}` : '/forums')
   }
 
   function onKeyDown(e: KeyboardEvent<HTMLInputElement>) {
@@ -107,7 +109,8 @@ export function HeroSearch({
       setActive((i) => Math.max(i - 1, 0))
     } else if (e.key === 'Enter' && open && matches[active]) {
       e.preventDefault()
-      goToHome()
+      if (submitTo === 'filter') submit()
+      else goToHome()
     } else if (e.key === 'Escape') {
       setOpen(false)
     }

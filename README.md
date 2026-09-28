@@ -1,8 +1,8 @@
-# DayZ Cheats (dayzcheats.io)
+# COD Hack (codhack.org)
 
-Static Astro site for DayZ Standalone cheats — silent aim Aimbot, ESP, wallhack, loot ESP, radar hack — Cloudflare Workers ready.
+Static Astro site for Call of Duty hack — silent aim Aimbot, ESP, wallhack, radar hack — Cloudflare Workers ready.
 
-Worldwide English SEO targeting **dayz cheats**, **dayz hacks**, and **undetected dayz cheats**.
+Worldwide English SEO targeting **call of duty hack**, **cod hack**, and **undetected warzone hack**.
 
 ```bash
 npm install

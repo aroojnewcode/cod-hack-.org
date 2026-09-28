@@ -10,7 +10,7 @@ const root = join(dirname(fileURLToPath(import.meta.url)), '..')
 const publicDir = join(root, 'public')
 const dataDir = join(root, 'src', 'data')
 const pagesDir = join(root, 'src', 'pages')
-const SITE = (process.env.SITE_URL || 'https://dayzcheats.io').replace(/\/$/, '')
+const SITE = (process.env.SITE_URL || 'https://codhack.org').replace(/\/$/, '')
 const TODAY = new Date().toLocaleDateString('en-CA')
 const HREFLANG = ['en', 'x-default']
 
@@ -65,7 +65,7 @@ const FORUM_IMAGES = {
 
 const PAGE_META = {
   '/': { priority: '1.0', changefreq: 'daily' },
-  '/dayz-cheats': { priority: '0.9', changefreq: 'weekly' },
+  '/cod-hack': { priority: '0.9', changefreq: 'weekly' },
   '/forums': { priority: '0.85', changefreq: 'weekly' },
   '/reviews': { priority: '0.8', changefreq: 'weekly' },
   '/faq': { priority: '0.75', changefreq: 'monthly' },
@@ -173,28 +173,28 @@ function imagesForPath(path, games, forums) {
     return [
       {
         src: '/og/home.jpg',
-        title: 'DayZ Cheats Open Graph',
-        caption: 'Google and social preview image for dayzcheats.io homepage.',
+        title: 'COD Hack Open Graph',
+        caption: 'Google and social preview image for the codhack.org homepage.',
       },
       {
         src: HERO_FULL,
-        title: 'DayZ Cheats Hero',
-        caption: 'Buy DayZ cheats - DayZ Aimbot, ESP and radar hack hero artwork for PC.',
+        title: 'COD Hack Hero',
+        caption: 'Buy Call of Duty hack - COD Aimbot, ESP and radar hack hero artwork for PC.',
       },
       {
         src: COVER,
-        title: 'DayZ Cheats Product Cover',
-        caption: 'DayZ cheats product cover for checkout and social previews.',
+        title: 'COD Hack Product Cover',
+        caption: 'Call of Duty hack product cover for checkout and social previews.',
       },
       {
         src: VIDEO_THUMB,
-        title: 'DayZ Cheats Preview Thumbnail',
-        caption: 'Thumbnail for the DayZ Aimbot and ESP preview video.',
+        title: 'COD Hack Preview Thumbnail',
+        caption: 'Thumbnail for the COD Aimbot and ESP preview video.',
       },
       {
         src: OG_DEFAULT,
-        title: 'DayZ Cheats Product Social Preview',
-        caption: 'Default Open Graph image for dayzcheats.io product pages.',
+        title: 'COD Hack Product Social Preview',
+        caption: 'Default Open Graph image for codhack.org product pages.',
       },
     ]
   }

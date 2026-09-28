@@ -1,7 +1,7 @@
 ﻿# Videos
 
-Self-hosted DayZ / DayZ Cheats media:
-- `/videos/dayz-preview.mp4` — battlelog DayZ Reaper preview (no third-party embeds)
-- `/media/dayz-hero-full.webp`, `dayz-cover.webp`, `dayz-box.jpg` — product art
-- `/media/dayz-menu.gif`, `dayz-esp-gameplay.gif` — menu/ESP stills
-- `/media/dayz-video-thumb.jpg` — preview poster frame
+Self-hosted Call of Duty / COD Hack media:
+- `/videos/hero-loop.mp4` — short muted 720p hero loop (no audio)
+- `/media/hero-poster.webp` — hero poster for first paint / reduced motion
+- `/videos/dayz-preview.mp4` — product Feature preview loop (~3.6s, 720p24, muted) from mid Warzone cheat gameplay
+- `/media/cod-preview-poster.webp` — preview poster for first paint / reduced motion

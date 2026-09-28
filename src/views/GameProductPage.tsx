@@ -7,10 +7,17 @@ import {
   getGame,
   guidePath,
   parseGuideSlug,
+  statusLabel,
   type Game,
 } from '../data/games'
 import { PRODUCT_PAGE_FAQS } from '../data/faqs'
-import { PRODUCT_PRICE_USD, SITE_HOST, SITE_NAME } from '../data/site'
+import {
+  PRODUCT_PATH,
+  PRODUCT_PRICE_LIFETIME_USD,
+  PRODUCT_PRICE_USD,
+  SITE_HOST,
+  SITE_NAME,
+} from '../data/site'
 import { FaqSection } from '../components/FaqSection'
 import { CheckoutLink } from '../components/CheckoutLink'
 import { NotFoundPage } from './NotFoundPage'
@@ -20,32 +27,32 @@ import { DayZPreview } from '../components/DayZPreview'
 
 function ProductPurchaseCard({ game }: { game: Game }) {
   return (
-    <div className="overflow-hidden rounded-2xl border border-z-soft/15 bg-[rgba(20,16,31,0.95)] sm:rounded-3xl">
-      <CheckoutLink className="block" aria-label="Buy DayZ Cheats">
+    <div className="highlight-box isolate overflow-hidden rounded-2xl border border-z-soft/15 bg-[rgba(20,16,31,0.95)] sm:rounded-3xl">
+      <CheckoutLink className="block overflow-hidden rounded-t-2xl sm:rounded-t-3xl" aria-label="Buy COD Hack">
         <GameCover
           slug={game.slug}
           name={game.name}
-          aspect="square"
           variant="product"
           className="rounded-none"
         />
       </CheckoutLink>
       <div className="p-5 sm:p-6">
         <div className="flex items-center gap-3">
-          <div className="icon-well shrink-0 text-sm font-bold">DZ</div>
-          <div className="min-w-0">
-            <p className="truncate text-sm font-semibold text-white">DayZ Cheats</p>
+            <div className="icon-well shrink-0 text-sm font-bold">COD</div>
+            <div className="min-w-0">
+            <p className="truncate text-sm font-semibold text-white">COD Hack</p>
             <p className="text-xs text-white/45">
-              {game.status} · From ${PRODUCT_PRICE_USD}
+              {statusLabel(game.status)} · Monthly ${PRODUCT_PRICE_USD} · Lifetime $
+              {PRODUCT_PRICE_LIFETIME_USD}
             </p>
           </div>
         </div>
 
         <CheckoutLink className="cta-gradient mt-5 block w-full rounded-full py-3.5 text-center text-sm font-semibold text-white transition-opacity hover:opacity-90">
-          Buy DayZ Cheats
+          Buy COD Hack
         </CheckoutLink>
         <p className="mt-3 text-center text-[11px] text-white/40">
-          Instant delivery · Check BattlEye status first
+          Instant delivery · Check Ricochet status first
         </p>
       </div>
     </div>
@@ -60,7 +67,7 @@ export function GameProductPage({ guideSlug }: GameProductPageProps) {
   const slug = parseGuideSlug(guideSlug)
   const game = getGame(slug)
 
-  if (!guideSlug.toLowerCase().endsWith('-cheats')) {
+  if (!guideSlug.toLowerCase().endsWith('-hack')) {
     const maybe = getGame(guideSlug.toLowerCase())
     if (maybe) {
       if (typeof window !== 'undefined') {
@@ -97,15 +104,15 @@ export function GameProductPage({ guideSlug }: GameProductPageProps) {
               <div className="lg:col-span-7">
                 <span className="inline-flex items-center gap-1.5 text-xs text-z-soft">
                   <Shield className="h-3.5 w-3.5 shrink-0" strokeWidth={1.75} />
-                  {game.status} · DayZ Standalone · BattlEye · {SITE_HOST}
+                  {statusLabel(game.status)} · Call of Duty · Ricochet · {SITE_HOST}
                 </span>
 
                 <h1 className="mt-3 text-2xl font-semibold leading-tight tracking-tight text-white sm:text-4xl lg:text-[2.75rem] lg:leading-[1.1]">
-                  DayZ Cheats Price & Checkout
+                  COD Hack Price & Checkout
                 </h1>
                 <p className="mt-3 max-w-xl text-sm leading-relaxed text-white/55 sm:mt-4 sm:text-base">
-                  Silent aim Aimbot, ESP, wallhack, loot ESP and radar hack for DayZ Standalone on
-                  PC. Confirm BattlEye status, then checkout — worldwide delivery.
+                  Silent aim Aimbot, ESP, wallhack and radar hack for Call of Duty on PC. Confirm
+                  Ricochet status, then checkout — worldwide delivery.
                 </p>
 
                 <div className="mt-6 lg:hidden">
@@ -134,11 +141,11 @@ export function GameProductPage({ guideSlug }: GameProductPageProps) {
                 <div className="mt-12 space-y-8 text-sm leading-relaxed text-white/55">
                   <div>
                     <h2 className="text-lg font-semibold tracking-tight text-white sm:text-xl">
-                      Servers & BattlEye
+                      Playlists & Ricochet
                     </h2>
                     <p className="mt-3">
-                      Runs on official DayZ servers and most common private mod setups. After a
-                      client or BattlEye patch, status may show Updating until tested —{' '}
+                      Runs on Call of Duty Multiplayer, Ranked and Warzone when the build allows it.
+                      After a client or Ricochet patch, status may show Updating until tested —{' '}
                       {SITE_NAME} publishes live status so you are not buying a dead loader. Status
                       first, load second.
                     </p>
@@ -185,13 +192,13 @@ export function GameProductPage({ guideSlug }: GameProductPageProps) {
         </section>
 
         <FaqSection
-          heading="DayZ Cheats product FAQ"
+          heading="COD Hack product FAQ"
           intro="Status, features, server support, delivery and load questions before checkout."
           items={PRODUCT_PAGE_FAQS}
         />
       </main>
 
-      <SiteFooter currentPath="/dayz-cheats" />
+      <SiteFooter currentPath={PRODUCT_PATH} />
     </div>
   )
 }

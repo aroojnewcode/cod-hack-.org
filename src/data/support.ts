@@ -9,14 +9,14 @@ export type SupportFaq = {
 }
 
 export const SUPPORT_INTRO =
-  'Support for DayZ Cheats buyers on dayzcheats.io — loader setup, BattlEye status, menu config and delivery help after you purchase DayZ cheats.'
+  'Support for COD Hack buyers on codhack.org — loader setup, Ricochet status, menu config and delivery help after you purchase a Call of Duty hack.'
 
 export const SUPPORT_TOPICS: SupportTopic[] = [
   {
     heading: 'Status before you load',
     body: [
       'Check live status on the product page. If it says Updating, do not load. Wait until it is clear to load again.',
-      'BattlEye patches can invalidate yesterday’s build. Status honesty matters more than rushing a session.',
+      'Ricochet patches can invalidate yesterday’s build. Status honesty matters more than rushing a session.',
     ],
   },
   {
@@ -35,7 +35,7 @@ export const SUPPORT_TOPICS: SupportTopic[] = [
   {
     heading: 'What we can and cannot help with',
     body: [
-      'Supported: DayZ Standalone on Windows, official and common private servers, loader and menu help for paid licenses.',
+      'Supported: Call of Duty on Windows, Warzone, Multiplayer and Ranked, loader and menu help for paid licenses.',
       'Not supported: other games, cracked loaders or third-party mirrors.',
     ],
   },
@@ -43,8 +43,8 @@ export const SUPPORT_TOPICS: SupportTopic[] = [
 
 export const SUPPORT_FAQS: SupportFaq[] = [
   {
-    q: 'How do I contact DayZ Cheats support?',
-    a: 'Open your order on dayzcheats.io and use the checkout support channel tied to your purchase. Include a status screenshot (clear to load / Updating) and whether you need load, menu or delivery help.',
+    q: 'How do I contact COD Hack support?',
+    a: 'Open your order on codhack.org and use the checkout support channel tied to your purchase. Include a status screenshot (clear to load / Updating) and whether you need load, menu or delivery help.',
   },
   {
     q: 'The loader will not open — what first?',
@@ -52,14 +52,14 @@ export const SUPPORT_FAQS: SupportFaq[] = [
   },
   {
     q: 'Menu opened once then never again?',
-    a: 'Do not spam launch. Restart DayZ, confirm antivirus exclusions, re-check status, then try one clean load. If it still fails, contact support with your order ID.',
+    a: 'Do not spam launch. Restart Call of Duty, confirm antivirus exclusions, re-check status, then try one clean load. If it still fails, contact support with your order ID.',
   },
   {
-    q: 'Do you support private DayZ servers?',
-    a: 'Most common modded private servers work. Heavily scripted communities can differ — ask support with the server name before you buy if that is your only play environment.',
+    q: 'Do you support Warzone and Ranked?',
+    a: 'Warzone, Multiplayer and Ranked are the supported playlists when the current build is clear to load. Playlist-specific limits can differ after a title update — ask support if you only play one mode.',
   },
   {
     q: 'Where is my delivery?',
-    a: 'Delivery is digital after checkout on dayzcheats.io. Use only that loader link. Third-party mirrors are unsupported and unsafe.',
+    a: 'Delivery is digital after checkout on codhack.org. Use only that loader link. Third-party mirrors are unsupported and unsafe.',
   },
 ]

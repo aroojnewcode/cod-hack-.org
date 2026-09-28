@@ -6,15 +6,22 @@ type DayZPreviewProps = {
   wide?: boolean
 }
 
-/** Self-hosted DayZ preview scraped from battlelog (mediadelivery embeds 403 off-domain). */
+/** Self-hosted muted COD cheat-gameplay loop (no YouTube embed). */
 export function DayZPreview({ className = '', wide = false }: DayZPreviewProps) {
   return (
     <div className={`video-brand-mask border border-z-soft/20 ${className}`.trim()}>
       <div
         className={`relative w-full overflow-hidden ${wide ? 'aspect-video lg:aspect-[21/9]' : 'aspect-video'}`}
       >
+        <img
+          src={DAYZ_HOME_VIDEO.poster}
+          alt={DAYZ_HOME_VIDEO.title}
+          width={1280}
+          height={720}
+          className="absolute inset-0 h-full w-full object-cover"
+        />
         <video
-          className="video-brand-crop absolute inset-0 h-full w-full object-cover"
+          className="preview-loop-video absolute inset-0 h-full w-full object-cover"
           autoPlay
           muted
           loop
@@ -25,9 +32,7 @@ export function DayZPreview({ className = '', wide = false }: DayZPreviewProps) 
         >
           <source src={DAYZ_HOME_VIDEO.src} type="video/mp4" />
         </video>
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-z-bg/50 via-transparent to-z-bg/20" />
-        <div className="video-brand-blur video-brand-blur--top" aria-hidden />
-        <div className="video-brand-blur" aria-hidden />
+        <div className="preview-loop-tint pointer-events-none absolute inset-0" aria-hidden />
       </div>
       <p className="sr-only">{DAYZ_HOME_VIDEO.title}</p>
     </div>

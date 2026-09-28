@@ -7,60 +7,63 @@ export type Game = {
   popular?: boolean
 }
 
-/** Site is DayZ cheats only — no other titles in the catalog. */
+/** Site is Call of Duty hack only — no other titles in the catalog. */
 export const GAMES: Game[] = [
-  { slug: 'dayz', name: 'DayZ', status: 'Undetected', popular: true },
+  { slug: 'cod', name: 'Call of Duty', status: 'Undetected', popular: true },
 ]
 
 export function getGame(slug: string) {
   return GAMES.find((g) => g.slug === slug)
 }
 
+/** Buyer-facing status on the product card (Undetected → Clear). */
+export function statusLabel(status: GameStatus) {
+  if (status === 'Undetected') return 'Clear'
+  if (status === 'Use with caution') return 'Caution'
+  return status
+}
+
 export function guidePath(slug: string) {
-  return `/${slug.toLowerCase()}-cheats`
+  return `/${slug.toLowerCase()}-hack`
 }
 
 export function parseGuideSlug(param: string) {
   const lower = param.toLowerCase()
-  return lower.endsWith('-cheats') ? lower.slice(0, -7) : lower
+  return lower.endsWith('-hack') ? lower.slice(0, -5) : lower
 }
 
 export const GUIDE_FEATURES = [
   {
-    name: 'DayZ Aimbot (silent aim)',
-    text: 'Silent-aim tracking with FOV, smoothing and bone selection — fire near a survivor and still land the hit, so it reads as legit even when an admin spectates.',
+    name: 'COD Aimbot (silent aim)',
+    text: 'Silent-aim tracking with FOV, smoothing and bone selection — fire near an operator and still land the hit, so it reads as legit even when a teammate or clip reviews it.',
   },
   {
     name: 'Player ESP / Wallhack',
-    text: 'See survivors through walls and treelines with distance, health and gear information when the build supports it — tell friendlies from hostiles instantly.',
+    text: 'See enemies through walls, smoke and buildings with distance, health and loadout information when the build supports it — tell teammates from hostiles instantly.',
   },
   {
-    name: 'Infected ESP',
-    text: 'Track infected before they track you, so a loot run in Cherno or Elektro never turns into a zombie train at the worst moment.',
+    name: 'UAV / Radar Hack',
+    text: '2D radar awareness for off-screen operators across Warzone and Multiplayer — spot the third party before it reaches your circle or hill.',
   },
   {
-    name: 'Loot & Item ESP',
-    text: 'Highlight guns, ammo, medical supplies and rare gear by category so you skip empty houses and gear up in minutes instead of hours.',
+    name: 'Recoil & aim assist tools',
+    text: 'Optional recoil control and visibility checks so tracking stays human instead of a robotic snap that Ricochet reports love.',
   },
   {
-    name: 'Radar Hack',
-    text: '2D radar awareness for off-screen survivors across Chernarus and Livonia — spot the third party before it reaches your position.',
-  },
-  {
-    name: 'Base & Stash Intel',
-    text: 'Spot player bases, tents and buried stashes on private servers so raids land on full storage instead of empty walls.',
-  },
-  {
-    name: 'Official & modded server support',
-    text: 'Works on official DayZ servers and on private servers running most common mod setups.',
+    name: 'Warzone & Multiplayer support',
+    text: 'Works on Call of Duty Multiplayer, Ranked and Warzone on Windows PC when the current build allows it.',
   },
   {
     name: 'Spoofer + Cleaner',
     text: 'Protect hardware identifiers and refresh traces after bans or hardware swaps — included with the package.',
   },
   {
-    name: 'BattlEye status + support',
-    text: 'Live clear-to-load or Updating status is reviewed after BattlEye and DayZ patches before you load.',
+    name: 'Stream-proof overlays',
+    text: 'Keep supported ESP and radar overlays out of OBS and common capture tools while you still see them locally.',
+  },
+  {
+    name: 'Ricochet status + support',
+    text: 'Live clear-to-load or Updating status is reviewed after Ricochet and Call of Duty patches before you load.',
   },
 ] as const
 

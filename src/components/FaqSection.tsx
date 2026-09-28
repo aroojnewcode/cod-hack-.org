@@ -57,7 +57,7 @@ export function FaqSection({
                   aria-hidden
                 />
               </summary>
-              <p className="pb-5 pr-8 text-sm leading-relaxed text-white/55">{item.a}</p>
+              <p className="pb-5 pr-8 text-sm leading-relaxed text-white">{item.a}</p>
             </details>
           ))}
         </div>

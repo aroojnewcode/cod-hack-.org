@@ -1,34 +1,37 @@
 ﻿import { DAYZ_OG } from './images'
 import { PAGE_OG } from './og'
 
-export const SITE_URL = 'https://dayzcheats.io'
-export const SITE_NAME = 'DayZ Cheats'
-export const SITE_HOST = 'dayzcheats.io'
+export const SITE_URL = 'https://codhack.org'
+export const SITE_NAME = 'COD Hack'
+export const SITE_HOST = 'codhack.org'
+export const PRODUCT_PATH = '/cod-hack'
+export const GAME_SLUG = 'cod'
 
 /**
  * Sole purpose — used in schema + about copy.
- * Single-product site: DayZ / DayZ Standalone cheats for PC (worldwide).
- * Canonical host is apex https://dayzcheats.io (www 301s to apex in the Worker).
+ * Single-product site: Call of Duty / Warzone / Multiplayer hacks for PC (worldwide).
+ * Canonical host is apex https://codhack.org (www 301s to apex in the Worker).
  */
 export const SITE_PURPOSE =
-  'Buy DayZ cheats for DayZ Standalone on Windows PC — silent-aim Aimbot, player and loot ESP, wallhack, radar hack and live BattlEye status with instant digital delivery.'
+  'Buy Call of Duty hack for Warzone and Multiplayer on Windows PC — silent-aim Aimbot, player ESP, wallhack, radar hack and live Ricochet status with instant digital delivery.'
 
 export const SITE_ABOUT = [
-  'dayz cheats',
-  'dayz cheat',
-  'dayz hacks',
-  'dayz hack',
-  'dayz standalone cheats',
-  'dayz aimbot',
-  'dayz esp',
-  'dayz wallhack',
-  'dayz radar hack',
-  'battleye dayz cheats',
-  'dayz cheat aimbot',
+  'call of duty hack',
+  'cod hack',
+  'cod hacks',
+  'warzone hack',
+  'warzone cheats',
+  'cod aimbot',
+  'cod esp',
+  'cod wallhack',
+  'cod radar hack',
+  'ricochet cod hack',
+  'undetected cod hack',
 ] as const
 
-/** Offer price shown on product schema + purchase UI. */
+/** Offer prices shown on product schema + purchase UI. */
 export const PRODUCT_PRICE_USD = '35'
+export const PRODUCT_PRICE_LIFETIME_USD = '150'
 
 export const SEO_REGIONS = [
   { hreflang: 'en', label: 'English' },
@@ -53,74 +56,74 @@ const INDEX_ROBOTS =
 
 export const SEO = {
   home: {
-    title: 'DayZ Cheats | DayZ Cheat Aimbot, ESP & Hacks',
+    title: 'Call of Duty Hack | COD Hack Aimbot, ESP & Hacks',
     description:
-      'Buy DayZ cheats for DayZ Standalone — silent aim Aimbot, player and loot ESP, wallhack and radar hack from $35. Check live BattlEye status, then checkout.',
+      'Buy Call of Duty hack for Warzone and Multiplayer — silent aim Aimbot, player ESP, wallhack and radar hack from $35. Check live Ricochet status, then checkout.',
     path: '/',
     ogType: 'website',
     image: PAGE_OG.home,
-    imageAlt: 'DayZ Cheats — DayZ Aimbot, ESP and radar hack for PC',
+    imageAlt: 'COD Hack — Call of Duty Aimbot, ESP and radar hack for PC',
     robots: INDEX_ROBOTS,
   },
   forums: {
-    title: 'DayZ Cheats Guides | Aimbot, ESP, Radar & Status',
+    title: 'COD Hack Guides | Aimbot, ESP, Radar & Status',
     description:
-      'DayZ cheats guides hub — silent aim, player and loot ESP, radar hack, antivirus exclusions, loader setup and BattlEye status articles before you buy.',
+      'Call of Duty hack guides hub — silent aim, player ESP, radar hack, antivirus exclusions, loader setup and Ricochet status articles before you buy.',
     path: '/forums',
     ogType: 'website',
     image: PAGE_OG.forums,
-    imageAlt: 'DayZ Cheats setup guides for Aimbot, ESP and BattlEye',
+    imageAlt: 'COD Hack setup guides for Aimbot, ESP and Ricochet',
     robots: INDEX_ROBOTS,
   },
   reviews: {
-    title: 'DayZ Cheats Reviews | Buyer Feedback on DayZ Hacks',
+    title: 'COD Hack Reviews | Buyer Feedback on COD Hacks',
     description:
-      'Read DayZ cheats reviews covering silent aim, player ESP, loot ESP and BattlEye rebuilds before you buy a DayZ Standalone license for PC.',
+      'Read Call of Duty hack reviews covering silent aim, player ESP, wallhack and Ricochet rebuilds before you buy a Warzone or Multiplayer license for PC.',
     path: '/reviews',
     ogType: 'website',
     image: PAGE_OG.reviews,
-    imageAlt: 'DayZ Cheats buyer reviews for DayZ Standalone',
+    imageAlt: 'COD Hack buyer reviews for Call of Duty on PC',
     robots: INDEX_ROBOTS,
   },
   faq: {
-    title: 'DayZ Cheats FAQ | Price, BattlEye Status & Setup',
+    title: 'COD Hack FAQ | Price, Ricochet Status & Setup',
     description:
-      'FAQ for buying DayZ cheats on Windows PC — price, Aimbot and ESP features, BattlEye status, private server support, loader setup and delivery.',
+      'FAQ for buying Call of Duty hack on Windows PC — price, Aimbot and ESP features, Ricochet status, Warzone and Multiplayer support, loader setup and delivery.',
     path: '/faq',
     ogType: 'website',
     image: PAGE_OG.faq,
-    imageAlt: 'DayZ Cheats FAQ — price, BattlEye and setup',
+    imageAlt: 'COD Hack FAQ — price, Ricochet and setup',
     robots: INDEX_ROBOTS,
   },
   support: {
-    title: 'DayZ Cheats Support | Loader, Delivery & Setup Help',
+    title: 'COD Hack Support | Loader, Delivery & Setup Help',
     description:
-      'Get help buying and loading DayZ cheats — delivery email, Windows setup, antivirus exclusions, loader errors and BattlEye status updates.',
+      'Get help buying and loading Call of Duty hack — delivery email, Windows setup, antivirus exclusions, loader errors and Ricochet status updates.',
     path: '/support',
     ogType: 'website',
     image: PAGE_OG.support,
-    imageAlt: 'DayZ Cheats support for loader and delivery help',
+    imageAlt: 'COD Hack support for loader and delivery help',
     robots: INDEX_ROBOTS,
   },
   product: {
-    title: 'DayZ Cheats Price & Checkout | Aimbot, ESP, Radar',
+    title: 'COD Hack Price & Checkout | Aimbot, ESP, Radar',
     description:
-      'DayZ cheats price and checkout — silent aim Aimbot, player ESP, loot ESP, wallhack, radar hack, spoofer and live BattlEye status from $35.',
-    path: '/dayz-cheats',
+      'Call of Duty hack price and checkout — silent aim Aimbot, player ESP, wallhack, radar hack, spoofer and live Ricochet status from $35.',
+    path: PRODUCT_PATH,
     ogType: 'product',
     image: PAGE_OG.product,
-    imageAlt: 'DayZ Aimbot, ESP and radar hack product details',
+    imageAlt: 'Call of Duty Aimbot, ESP and radar hack product details',
     robots: INDEX_ROBOTS,
   },
 } as const satisfies Record<string, PageSeo>
 
 export const HOME_HEADINGS = {
-  h1: 'DayZ Cheats — DayZ Cheat Aimbot, ESP & Hacks',
-  h2Features: 'DayZ Aimbot, ESP, loot ESP & radar hack',
-  h2Featured: 'DayZ ESP and silent aim Aimbot',
-  h2About: 'Clear BattlEye status before you buy DayZ cheats',
-  h2Access: 'Buy DayZ Cheats',
-  h2Faq: 'DayZ Cheats FAQ',
+  h1: 'Call of Duty Hack — COD Hack Aimbot, ESP & Hacks',
+  h2Features: 'COD Aimbot, ESP, wallhack & radar hack',
+  h2Featured: 'COD ESP and silent aim Aimbot',
+  h2About: 'Clear Ricochet status before you buy COD Hack',
+  h2Access: 'Buy COD Hack',
+  h2Faq: 'COD Hack FAQ',
 } as const
 
 export function absoluteUrl(path: string) {

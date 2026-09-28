@@ -1,6 +1,7 @@
 ﻿import type { FaqItem } from '../data/faqs'
 import {
   OG_IMAGE,
+  PRODUCT_PATH,
   PRODUCT_PRICE_USD,
   SEO_REGIONS,
   SITE_ABOUT,
@@ -41,10 +42,10 @@ export function siteIdentityGraph() {
       '@id': `${SITE_URL}/#organization`,
       name: SITE_NAME,
       alternateName: [
-        'DayZ Hacks',
-        'DayZ Standalone Cheats',
-        'dayzcheats.io',
-        'DayZ Aimbot ESP',
+        'Call of Duty Hack',
+        'COD Hacks',
+        'codhack.org',
+        'COD Aimbot ESP',
       ],
       url: SITE_URL,
       description: SITE_PURPOSE,
@@ -68,9 +69,9 @@ export function siteIdentityGraph() {
       inLanguage: 'en',
       about: {
         '@type': 'Thing',
-        name: 'DayZ cheats',
+        name: 'Call of Duty hack',
         description:
-          'Commercial DayZ cheats for PC — silent aim Aimbot, player ESP, loot ESP, wallhack, radar hack and BattlEye status.',
+          'Commercial Call of Duty hack for PC — silent aim Aimbot, player ESP, wallhack, radar hack and Ricochet status.',
       },
       publisher: { '@id': `${SITE_URL}/#organization` },
     },
@@ -90,7 +91,7 @@ export function webPageNode(seo: PageSeo) {
     inLanguage: 'en',
   } as Record<string, unknown>
   const hasVisibleImage =
-    ['/', '/dayz-cheats', '/forums'].includes(seo.path) || seo.path.startsWith('/forums/')
+    ['/', PRODUCT_PATH, '/forums'].includes(seo.path) || seo.path.startsWith('/forums/')
   // Text pages (faq/support/reviews) still expose OG as WebPage.image for social crawlers
   const hasOgImage = Boolean(seo.image)
   if (hasVisibleImage || hasOgImage) {
@@ -110,33 +111,33 @@ export function productCoreJsonLd() {
   return {
     '@type': 'Product',
     '@id': PRODUCT_ID,
-    name: 'DayZ Cheats',
+    name: 'COD Hack',
     alternateName: [
-      'DayZ Hacks',
-      'DayZ Standalone Cheats',
-      'DayZ Aimbot',
-      'DayZ ESP',
-      'DayZ Wallhack',
-      'DayZ Radar Hack',
+      'Call of Duty Hack',
+      'COD Hacks',
+      'COD Aimbot',
+      'COD ESP',
+      'COD Wallhack',
+      'COD Radar Hack',
     ],
     description: SITE_PURPOSE,
-    url: `${SITE_URL}/dayz-cheats`,
+    url: `${SITE_URL}${PRODUCT_PATH}`,
     image: [
-      absoluteAsset('/og/dayz-cheats.jpg'),
-      absoluteAsset('/og/home.jpg'),
       absoluteAsset(PAGE_MEDIA.product.image),
       absoluteAsset(PAGE_MEDIA.home.image),
+      absoluteAsset(PAGE_MEDIA.forums.image),
+      absoluteAsset('/og/dayz-cheats.jpg'),
     ],
     brand: { '@type': 'Brand', name: SITE_NAME },
     manufacturer: { '@id': `${SITE_URL}/#organization` },
     category: 'PC game software',
-    offers: baseOffer(`${SITE_URL}/dayz-cheats`, 'https://schema.org/InStock'),
+    offers: baseOffer(`${SITE_URL}${PRODUCT_PATH}`, 'https://schema.org/InStock'),
     subjectOf: {
       '@type': 'VideoObject',
-      name: 'DayZ Cheats Aimbot and ESP preview',
+      name: 'COD Hack Aimbot and ESP preview',
       description:
-        'Preview of DayZ Aimbot, ESP menu, loot highlighting and radar hack features on PC.',
-      thumbnailUrl: absoluteAsset('/media/dayz-video-thumb.jpg'),
+        'Short Warzone cheat gameplay loop — silent aim Aimbot, player ESP and radar on PC.',
+      thumbnailUrl: absoluteAsset('/media/cod-preview-poster.webp'),
       contentUrl: absoluteAsset('/videos/dayz-preview.mp4'),
       uploadDate: '2026-09-16',
       inLanguage: 'en',
@@ -149,13 +150,13 @@ export function productDetailJsonLd(status: GameStatus) {
     status === 'Undetected' ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock'
   return {
     ...productCoreJsonLd(),
-    url: `${SITE_URL}/dayz-cheats`,
+    url: `${SITE_URL}${PRODUCT_PATH}`,
     image: absoluteAsset(PAGE_MEDIA.product.image),
     about: {
       '@type': 'VideoGame',
-      name: 'DayZ',
-      alternateName: ['DayZ Standalone', 'DayZ SA'],
-      publisher: { '@type': 'Organization', name: 'Bohemia Interactive' },
+      name: 'Call of Duty',
+      alternateName: ['COD', 'Warzone', 'Call of Duty Multiplayer'],
+      publisher: { '@type': 'Organization', name: 'Activision' },
       gamePlatform: 'PC',
     },
     additionalProperty: [
@@ -163,17 +164,17 @@ export function productDetailJsonLd(status: GameStatus) {
       {
         '@type': 'PropertyValue',
         name: 'Features',
-        value: 'Silent aim Aimbot, player ESP, infected ESP, loot ESP, wallhack, radar hack, spoofer',
+        value: 'Silent aim Aimbot, player ESP, wallhack, radar hack, recoil tools, spoofer',
       },
-      { '@type': 'PropertyValue', name: 'Anti-cheat', value: 'BattlEye' },
+      { '@type': 'PropertyValue', name: 'Anti-cheat', value: 'Ricochet' },
       {
         '@type': 'PropertyValue',
-        name: 'Servers',
-        value: 'Official DayZ servers and private servers with common mods',
+        name: 'Playlists',
+        value: 'Warzone, Multiplayer and Ranked',
       },
       { '@type': 'PropertyValue', name: 'Status', value: status },
     ],
-    offers: baseOffer(`${SITE_URL}/dayz-cheats`, availability),
+    offers: baseOffer(`${SITE_URL}${PRODUCT_PATH}`, availability),
   }
 }
 
@@ -181,7 +182,7 @@ export function productReviewsJsonLd() {
   const aggregate = getReviewsAggregate()
   return {
     ...productCoreJsonLd(),
-    url: `${SITE_URL}/dayz-cheats`,
+    url: `${SITE_URL}${PRODUCT_PATH}`,
     aggregateRating: {
       '@type': 'AggregateRating',
       ratingValue: aggregate.ratingValue,
@@ -194,7 +195,7 @@ export function productReviewsJsonLd() {
       author: { '@type': 'Person', name: review.author },
       datePublished: review.datePublished,
       reviewBody: review.body,
-      name: `${review.author} DayZ Cheats review`,
+      name: `${review.author} COD Hack review`,
       reviewRating: {
         '@type': 'Rating',
         ratingValue: String(review.rating),

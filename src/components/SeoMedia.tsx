@@ -21,8 +21,8 @@ export function SeoMedia({
           src={media.image}
           alt={media.alt}
           title={media.title}
-          width={800}
-          height={450}
+          width={1280}
+          height={720}
           loading={priority ? 'eager' : 'lazy'}
           decoding={priority ? 'sync' : 'async'}
           fetchPriority={priority ? 'high' : 'auto'}
