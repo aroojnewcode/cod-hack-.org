@@ -7,7 +7,7 @@
     "dev": "astro dev --host 0.0.0.0 --port 5174",
     "build": "node scripts/generate-seo-assets.mjs && node scripts/generate-sitemaps.mjs && astro build && node scripts/verify-seo.mjs",
     "preview": "astro preview --port 5175",
-    "deploy": "wrangler deploy",
+    "deploy": "npm run build && wrangler deploy",
     "check": "astro check",
     "generate:sitemaps": "node scripts/generate-sitemaps.mjs",
     "generate:seo-assets": "node scripts/generate-seo-assets.mjs",

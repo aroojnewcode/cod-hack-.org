@@ -10,3 +10,5 @@ npm run dev
 npm run build
 npx wrangler deploy
 ```
+
+Cloudflare Workers Builds (deploy command locked to `npx wrangler deploy`) uses `wrangler.toml` `[build]` to run `npm ci --include=dev && npm run build` so `./dist` exists before Wrangler uploads assets. Set Node to **22**.

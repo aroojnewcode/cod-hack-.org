@@ -4,10 +4,10 @@ name = "codhack"
 main = "workers/site.js"
 compatibility_date = "2026-09-12"
 
-# Cloudflare CI invokes `npx wrangler deploy` directly. Build Astro first so
-# the static-assets directory exists before Wrangler validates it.
+# Cloudflare CI is locked to `npx wrangler deploy` with no separate build step.
+# Wrangler must install deps and produce ./dist before it looks for static assets.
 [build]
-command = "npm run build"
+command = "npm ci --include=dev && npm run build"
 
 [[routes]]
 pattern = "codhack.org"
