@@ -22,8 +22,8 @@ import { FaqSection } from '../components/FaqSection'
 import { CheckoutLink } from '../components/CheckoutLink'
 import { NotFoundPage } from './NotFoundPage'
 import { blogPath } from '../data/blogs'
-import { DAYZ_HOME_VIDEO } from '../data/media'
-import { DayZPreview } from '../components/DayZPreview'
+import { COD_PREVIEW_VIDEO } from '../data/media'
+import { FeaturePreview } from '../components/FeaturePreview'
 
 function ProductPurchaseCard({ game }: { game: Game }) {
   return (
@@ -177,8 +177,8 @@ export function GameProductPage({ guideSlug }: GameProductPageProps) {
                   <h2 className="text-lg font-semibold tracking-tight text-white sm:text-xl">
                     Feature preview
                   </h2>
-                  <p className="mt-2 text-sm text-white/45">{DAYZ_HOME_VIDEO.caption}</p>
-                  <DayZPreview className="mt-4" />
+                  <p className="mt-2 text-sm text-white/45">{COD_PREVIEW_VIDEO.caption}</p>
+                  <FeaturePreview className="mt-4" />
                 </div>
               </div>
 

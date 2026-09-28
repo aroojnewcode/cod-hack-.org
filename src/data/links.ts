@@ -75,8 +75,8 @@ export const SITE_GUIDE_LINKS = [
   { label: 'Windows setup', to: blogPath('windows-setup') },
   { label: 'Antivirus exclusions', to: blogPath('disable-antivirus') },
   { label: 'Stream-proof setup', to: blogPath('stream-proof-setup') },
-  { label: 'Ricochet status', to: blogPath('battleye-status') },
-  { label: 'Ranked & Warzone', to: blogPath('raid-play-guide') },
+  { label: 'Ricochet status', to: blogPath('ricochet-status') },
+  { label: 'Ranked & Warzone', to: blogPath('ranked-play-guide') },
   { label: 'Loader errors', to: blogPath('loader-errors') },
   { label: 'Status checklist', to: blogPath('undetected-status') },
 ] as const

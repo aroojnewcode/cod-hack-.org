@@ -1,4 +1,4 @@
-﻿import { DAYZ_OG } from './images'
+﻿import { PRODUCT_OG } from './images'
 import { PAGE_OG } from './og'
 
 export const SITE_URL = 'https://codhack.org'
@@ -38,7 +38,7 @@ export const SEO_REGIONS = [
   { hreflang: 'x-default', label: 'Default' },
 ] as const
 
-export const OG_IMAGE = DAYZ_OG
+export const OG_IMAGE = PRODUCT_OG
 
 export type PageSeo = {
   title: string
@@ -56,9 +56,9 @@ const INDEX_ROBOTS =
 
 export const SEO = {
   home: {
-    title: 'Call of Duty Hack | COD Hack Aimbot, ESP & Hacks',
+    title: 'Call of Duty Hack | Aimbot, ESP & Radar from $35',
     description:
-      'Buy Call of Duty hack for Warzone and Multiplayer — silent aim Aimbot, player ESP, wallhack and radar hack from $35. Check live Ricochet status, then checkout.',
+      'Buy Call of Duty hack for Warzone and Multiplayer on PC — silent aim Aimbot, player ESP, wallhack and radar hack from $35. Check live Ricochet status, then checkout.',
     path: '/',
     ogType: 'website',
     image: PAGE_OG.home,
@@ -66,9 +66,9 @@ export const SEO = {
     robots: INDEX_ROBOTS,
   },
   forums: {
-    title: 'COD Hack Guides | Aimbot, ESP, Radar & Status',
+    title: 'COD Hack Guides | Aimbot, ESP, Radar & Setup',
     description:
-      'Call of Duty hack guides hub — silent aim, player ESP, radar hack, antivirus exclusions, loader setup and Ricochet status articles before you buy.',
+      'Call of Duty hack guides: silent aim, player ESP, radar hack, antivirus exclusions, loader setup and Ricochet status. Read before you buy COD Hack from $35.',
     path: '/forums',
     ogType: 'website',
     image: PAGE_OG.forums,
@@ -76,9 +76,9 @@ export const SEO = {
     robots: INDEX_ROBOTS,
   },
   reviews: {
-    title: 'COD Hack Reviews | Buyer Feedback on COD Hacks',
+    title: 'COD Hack Reviews | Warzone & Multiplayer Buyers',
     description:
-      'Read Call of Duty hack reviews covering silent aim, player ESP, wallhack and Ricochet rebuilds before you buy a Warzone or Multiplayer license for PC.',
+      'Read Call of Duty hack reviews on silent aim, player ESP, wallhack and Ricochet rebuilds before you buy a Warzone or Multiplayer license for Windows PC.',
     path: '/reviews',
     ogType: 'website',
     image: PAGE_OG.reviews,
@@ -88,7 +88,7 @@ export const SEO = {
   faq: {
     title: 'COD Hack FAQ | Price, Ricochet Status & Setup',
     description:
-      'FAQ for buying Call of Duty hack on Windows PC — price, Aimbot and ESP features, Ricochet status, Warzone and Multiplayer support, loader setup and delivery.',
+      'FAQ for buying Call of Duty hack on Windows PC: price from $35, Aimbot and ESP features, Ricochet status, Warzone and Multiplayer support, loader setup and delivery.',
     path: '/faq',
     ogType: 'website',
     image: PAGE_OG.faq,
@@ -96,9 +96,9 @@ export const SEO = {
     robots: INDEX_ROBOTS,
   },
   support: {
-    title: 'COD Hack Support | Loader, Delivery & Setup Help',
+    title: 'COD Hack Support | Loader, Delivery & Windows',
     description:
-      'Get help buying and loading Call of Duty hack — delivery email, Windows setup, antivirus exclusions, loader errors and Ricochet status updates.',
+      'Get help buying and loading Call of Duty hack: delivery email, Windows setup, antivirus exclusions, loader errors and Ricochet status updates on codhack.org.',
     path: '/support',
     ogType: 'website',
     image: PAGE_OG.support,

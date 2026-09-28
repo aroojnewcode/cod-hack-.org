@@ -1,7 +1,7 @@
 ﻿/**
  * Auto-generate 1200x630 JPEG Open Graph images for every indexed URL.
  * Google SERP / social crawlers fetch these for right-side thumbnails.
- * Never overwrites battlelog-sourced /media assets.
+ * Never overwrites first-party COD /media gameplay stills.
  */
 import { access, mkdir, readFile } from 'node:fs/promises'
 import { join } from 'node:path'
@@ -33,18 +33,18 @@ async function exists(path) {
   }
 }
 
-const requiredBattlelog = [
-  join(mediaDir, 'dayz-hero-full.webp'),
-  join(mediaDir, 'dayz-cover.webp'),
-  join(mediaDir, 'dayz-box.jpg'),
-  join(mediaDir, 'dayz-menu.gif'),
-  join(mediaDir, 'dayz-esp-gameplay.gif'),
-  join(mediaDir, 'dayz-video-thumb.jpg'),
+const requiredMedia = [
+  join(mediaDir, 'cod-rooftop-wide.webp'),
+  join(mediaDir, 'cod-product-cover.webp'),
+  join(mediaDir, 'cod-alley-esp.webp'),
+  join(mediaDir, 'cod-spectate-reload.webp'),
+  join(mediaDir, 'cod-esp-doorway.webp'),
+  join(mediaDir, 'cod-preview-poster.webp'),
 ]
 
-for (const path of requiredBattlelog) {
+for (const path of requiredMedia) {
   if (!(await exists(path))) {
-    throw new Error(`Missing DayZ media asset (do not regenerate): ${path}`)
+    throw new Error(`Missing COD media asset (do not regenerate): ${path}`)
   }
 }
 
@@ -72,7 +72,7 @@ function overlaySvg(width, height, eyebrow, title, subtitle) {
         )
         .join('\n')}
       <text x="64" y="480" fill="#c9bdd2" font-size="26" font-family="Arial, sans-serif">${escapeXml(subtitle)}</text>
-      <text x="64" y="560" fill="#9299a3" font-size="20" font-family="Arial, sans-serif">dayzcheats.io</text>
+      <text x="64" y="560" fill="#9299a3" font-size="20" font-family="Arial, sans-serif">codhack.org</text>
     </svg>
   `)
 }
@@ -105,53 +105,53 @@ function loadForumMeta(src) {
   }))
 }
 
-const heroFull = join(mediaDir, 'dayz-hero-full.webp')
-const coverArt = join(mediaDir, 'dayz-cover.webp')
-const espGif = join(mediaDir, 'dayz-esp-gameplay.gif')
-const menuGif = join(mediaDir, 'dayz-menu.gif')
-const videoThumb = join(mediaDir, 'dayz-video-thumb.jpg')
+const heroFull = join(mediaDir, 'cod-rooftop-wide.webp')
+const coverArt = join(mediaDir, 'cod-product-cover.webp')
+const espGif = join(mediaDir, 'cod-esp-doorway.webp')
+const menuGif = join(mediaDir, 'cod-spectate-reload.webp')
+const videoThumb = join(mediaDir, 'cod-preview-poster.webp')
 
 const staticOg = [
   {
     file: 'home.jpg',
     source: heroFull,
-    eyebrow: 'DAYZ CHEATS',
-    title: 'DayZ Aimbot, ESP & Radar Hack',
-    subtitle: 'DayZ cheats from $35 · live BattlEye status',
+    eyebrow: 'COD HACK',
+    title: 'Call of Duty Aimbot, ESP & Radar',
+    subtitle: 'COD Hack from $35 · live Ricochet status',
   },
   {
-    file: 'dayz-cheats.jpg',
+    file: 'cod-hack.jpg',
     source: coverArt,
     eyebrow: 'PRODUCT DETAILS',
-    title: 'DayZ Aimbot, ESP & Radar',
-    subtitle: 'Features, BattlEye status and price',
+    title: 'COD Aimbot, ESP & Radar',
+    subtitle: 'Features, Ricochet status and price',
   },
   {
     file: 'forums.jpg',
     source: menuGif,
     eyebrow: 'GUIDES',
-    title: 'DayZ Cheats Setup Forums',
-    subtitle: 'Aimbot, ESP, loader and BattlEye guides',
+    title: 'COD Hack Setup Forums',
+    subtitle: 'Aimbot, ESP, loader and Ricochet guides',
   },
   {
     file: 'reviews.jpg',
     source: espGif,
     eyebrow: 'REVIEWS',
-    title: 'DayZ Cheats Buyer Reviews',
-    subtitle: 'Real DayZ Aimbot and ESP feedback',
+    title: 'COD Hack Buyer Reviews',
+    subtitle: 'Real COD Aimbot and ESP feedback',
   },
   {
     file: 'faq.jpg',
     source: menuGif,
     eyebrow: 'FAQ',
-    title: 'DayZ Cheats FAQ',
-    subtitle: 'Price, BattlEye status and setup answers',
+    title: 'COD Hack FAQ',
+    subtitle: 'Price, Ricochet status and setup answers',
   },
   {
     file: 'support.jpg',
     source: videoThumb,
     eyebrow: 'SUPPORT',
-    title: 'DayZ Cheats Support',
+    title: 'COD Hack Support',
     subtitle: 'Loader, delivery and Windows help',
   },
   {
@@ -159,14 +159,14 @@ const staticOg = [
     source: heroFull,
     eyebrow: 'POLICY',
     title: 'Privacy Policy',
-    subtitle: 'How dayzcheats.io handles order data',
+    subtitle: 'How codhack.org handles order data',
   },
   {
     file: 'terms.jpg',
     source: heroFull,
     eyebrow: 'POLICY',
     title: 'Terms of Use',
-    subtitle: 'License rules for DayZ Cheats',
+    subtitle: 'License rules for COD Hack',
   },
   {
     file: 'refunds.jpg',
@@ -188,12 +188,11 @@ for (const item of staticOg) {
 const blogsSrc = await readFile(blogsPath, 'utf8')
 const forums = loadForumMeta(blogsSrc)
 if (!forums.length) {
-  // Fallback if regex misses — at least create from slugs
   for (const slug of loadForumSlugs(blogsSrc)) {
     forums.push({
       slug,
-      title: `DayZ Cheats ${slug}`,
-      description: 'DayZ cheats guide on dayzcheats.io',
+      title: `COD Hack ${slug}`,
+      description: 'COD Hack guide on codhack.org',
     })
   }
 }
@@ -202,7 +201,7 @@ for (const forum of forums) {
   const file = `forums-${forum.slug}.jpg`
   const out = join(ogDir, file)
   const source =
-    /esp|wallhack|radar|raid/i.test(forum.slug)
+    /esp|wallhack|radar|ranked/i.test(forum.slug)
       ? espGif
       : /aimbot|features|hotkeys|setup|windows|antivirus|loader|stream/i.test(forum.slug)
         ? menuGif
@@ -210,46 +209,11 @@ for (const forum of forums) {
   await writeOgJpeg(
     out,
     source,
-    'DAYZ GUIDE',
+    'COD GUIDE',
     forum.title.replace(/\s*\|\s*.*$/, '').slice(0, 48),
-    'DayZ cheats · dayzcheats.io',
+    'COD Hack · codhack.org',
   )
   created.push(file)
-}
-
-// Auxiliary on-page art (only if missing)
-async function writeIfMissing(path, factory) {
-  if (await exists(path)) return false
-  await factory(path)
-  return true
-}
-
-function fillerSvg(width, height, eyebrow, title, subtitle) {
-  return Buffer.from(`
-    <svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg">
-      <rect width="100%" height="100%" fill="#08060f"/>
-      <text x="${width * 0.075}" y="${height * 0.47}" fill="#c084fc" font-size="${width * 0.022}" font-family="Arial, sans-serif" font-weight="700" letter-spacing="6">${escapeXml(eyebrow)}</text>
-      <text x="${width * 0.075}" y="${height * 0.64}" fill="#ffffff" font-size="${width * 0.05}" font-family="Arial, sans-serif" font-weight="700">${escapeXml(title)}</text>
-      <text x="${width * 0.075}" y="${height * 0.75}" fill="#c9bdd2" font-size="${width * 0.026}" font-family="Arial, sans-serif">${escapeXml(subtitle)}</text>
-    </svg>
-  `)
-}
-
-for (const [name, eyebrow, title, subtitle] of [
-  ['dayz-tactical-art.jpg', 'DAYZ STANDALONE', 'DayZ Cheats', 'Aimbot · ESP · Loot ESP · BattlEye'],
-  ['dayz-control-art.jpg', 'DAYZ · WINDOWS PC', 'DayZ ESP & Radar', 'Built for DayZ survival runs'],
-  ['dayz-home-art.jpg', 'dayzcheats.io', 'DayZ Cheats', 'Aimbot, ESP, wallhack and radar hack'],
-]) {
-  const path = join(mediaDir, name)
-  if (
-    await writeIfMissing(path, (p) =>
-      sharp(fillerSvg(1200, 675, eyebrow, title, subtitle))
-        .jpeg({ quality: 90, chromaSubsampling: '4:4:4' })
-        .toFile(p),
-    )
-  ) {
-    created.push(name)
-  }
 }
 
 console.log(`SEO OG images ready (${created.length}): ${created.slice(0, 8).join(', ')}…`)

@@ -2,7 +2,7 @@
 # Host www/HTTP → HTTPS apex is handled by workers/site.js (not_found_handling serves 404.html).
 
 # Trailing-slash canonicalization
-/dayz-cheats/   /dayz-cheats   301
+/cod-hack/      /cod-hack      301
 /forums/        /forums        301
 /reviews/       /reviews       301
 /faq/           /faq           301
@@ -21,54 +21,40 @@
 /terms-of-service/ /terms      301
 
 # Primary SEO keyword variants → product or home
-/dayz-hacks     /dayz-cheats   301
-/dayz-hacks/    /dayz-cheats   301
-/dayz-hack      /dayz-cheats   301
-/dayz-hack/     /dayz-cheats   301
-/dayz-cheat     /dayz-cheats   301
-/dayz-cheat/    /dayz-cheats   301
-/dayz-standalone-cheats  /dayz-cheats   301
-/dayz-standalone-cheats/ /dayz-cheats   301
-/dayz-standalone-cheat   /dayz-cheats   301
-/dayz-standalone-cheat/  /dayz-cheats   301
-/dayz-standalone-hacks   /dayz-cheats   301
-/dayz-standalone-hacks/  /dayz-cheats   301
-/dayz-standalone-hack    /dayz-cheats   301
-/dayz-standalone-hack/   /dayz-cheats   301
-/cheats-dayz    /dayz-cheats   301
-/cheats-dayz/   /dayz-cheats   301
-/hacks-dayz     /dayz-cheats   301
-/hacks-dayz/    /dayz-cheats   301
-/dayz-aimbot    /dayz-cheats   301
-/dayz-aimbot/   /dayz-cheats   301
-/dayz-esp       /dayz-cheats   301
-/dayz-esp/      /dayz-cheats   301
-/dayz-loot-esp  /dayz-cheats   301
-/dayz-loot-esp/ /dayz-cheats   301
-/dayz-wallhack  /dayz-cheats   301
-/dayz-wallhack/ /dayz-cheats   301
-/dayz-radar     /dayz-cheats   301
-/dayz-radar/    /dayz-cheats   301
-/dayz-radar-hack  /dayz-cheats 301
-/dayz-radar-hack/ /dayz-cheats 301
-/dayz-spoofer   /dayz-cheats   301
-/dayz-spoofer/  /dayz-cheats   301
-/undetected-dayz-cheats  /dayz-cheats   301
-/undetected-dayz-cheats/ /dayz-cheats   301
-/undetected-dayz-hacks   /dayz-cheats   301
-/undetected-dayz-hacks/  /dayz-cheats   301
-/battleye-dayz-cheats    /dayz-cheats   301
-/battleye-dayz-cheats/   /dayz-cheats   301
-/buy-dayz-cheats   /   301
-/buy-dayz-cheats/  /   301
-/buy-dayz-hacks    /   301
-/buy-dayz-hacks/   /   301
+/cod-hacks      /cod-hack      301
+/cod-hacks/     /cod-hack      301
+/cod-cheat      /cod-hack      301
+/cod-cheat/     /cod-hack      301
+/cod-cheats     /cod-hack      301
+/cod-cheats/    /cod-hack      301
+/call-of-duty-hack   /cod-hack 301
+/call-of-duty-hack/  /cod-hack 301
+/call-of-duty-hacks  /cod-hack 301
+/call-of-duty-hacks/ /cod-hack 301
+/warzone-hack   /cod-hack      301
+/warzone-hack/  /cod-hack      301
+/warzone-hacks  /cod-hack      301
+/warzone-hacks/ /cod-hack      301
+/warzone-cheats /cod-hack      301
+/warzone-cheats/ /cod-hack     301
+/warzone-aimbot /cod-hack      301
+/warzone-esp    /cod-hack      301
+/warzone-wallhack /cod-hack    301
+/cod-aimbot     /cod-hack      301
+/cod-esp        /cod-hack      301
+/cod-wallhack   /cod-hack      301
+/cod-radar      /cod-hack      301
+/cod-radar-hack /cod-hack      301
+/buy-cod-hack   /              301
+/buy-cod-hack/  /              301
+/buy-cod-hacks  /              301
+/buy-cod-hacks/ /              301
 /guides         /forums        301
 /guides/        /forums        301
 /features-list  /forums/features-list  301
 /setup          /forums/complete-setup 301
-/dayz-setup     /forums/complete-setup 301
-/dayz-cheats-setup /forums/complete-setup 301
+/cod-setup      /forums/complete-setup 301
+/cod-hack-setup /forums/complete-setup 301
 
 # Forum short-slug aliases
 /forums/setup         /forums/complete-setup     301
@@ -81,61 +67,24 @@
 /forums/defender      /forums/disable-antivirus  301
 /forums/windows       /forums/windows-setup      301
 /forums/stream-proof  /forums/stream-proof-setup 301
-/forums/battleye      /forums/battleye-status    301
+/forums/ricochet      /forums/ricochet-status    301
 /forums/undetected    /forums/undetected-status  301
 /forums/loader        /forums/loader-errors      301
-/forums/survival      /forums/raid-play-guide    301
-/forums/loot-run      /forums/raid-play-guide    301
+/forums/ranked        /forums/ranked-play-guide  301
+/forums/warzone       /forums/ranked-play-guide  301
 
-# Legacy Tarkov slugs → DayZ product (rebrand)
-/tarkov-cheats   /dayz-cheats   301
-/tarkov-cheats/  /dayz-cheats   301
-/eft-cheats      /dayz-cheats   301
-/eft-cheats/     /dayz-cheats   301
-/escape-from-tarkov-cheats   /dayz-cheats   301
-/escape-from-tarkov-cheats/  /dayz-cheats   301
-/tarkov-hacks   /dayz-cheats   301
-/tarkov-hacks/  /dayz-cheats   301
-/eft-hacks      /dayz-cheats   301
-/eft-hacks/     /dayz-cheats   301
-/escape-from-tarkov-hacks  /dayz-cheats   301
-/escape-from-tarkov-hacks/ /dayz-cheats   301
-/tarkov-aimbot  /dayz-cheats   301
-/tarkov-esp     /dayz-cheats   301
-/tarkov-wallhack /dayz-cheats  301
-/tarkov-radar   /dayz-cheats   301
-/eft-aimbot     /dayz-cheats   301
-/eft-esp        /dayz-cheats   301
-/eft-wallhack   /dayz-cheats   301
-/buy-tarkov-cheats  /   301
-/buy-tarkov-cheats/ /   301
-/buy-eft-cheats     /   301
-/buy-eft-cheats/    /   301
-
-# Legacy Warzone slugs → DayZ product (older rebrand)
-/warzone-cheats  /dayz-cheats   301
-/warzone-cheats/ /dayz-cheats   301
-/warzone-hacks   /dayz-cheats   301
-/warzone-hacks/  /dayz-cheats   301
-/warzone-aimbot  /dayz-cheats   301
-/warzone-esp     /dayz-cheats   301
-/warzone-wallhack /dayz-cheats  301
-/isle-cheats     /dayz-cheats   301
-/isle-cheats/    /dayz-cheats   301
-/wardogs-hacks   /dayz-cheats   301
-/wardogs-hacks/  /dayz-cheats   301
-/buy-warzone-cheats  /   301
-/buy-warzone-cheats/ /   301
-
-# Legacy forum slugs
-/forums/ricochet-status   /forums/battleye-status   301
-/forums/ricochet-status/  /forums/battleye-status   301
-/forums/ranked-play-guide /forums/raid-play-guide   301
-/forums/ranked-play-guide/ /forums/raid-play-guide  301
-/forums/loot-run-guide    /forums/raid-play-guide   301
-/forums/loot-run-guide/   /forums/raid-play-guide   301
-/forums/survival-guide    /forums/raid-play-guide   301
-/forums/survival-guide/   /forums/raid-play-guide   301
+# Old other-game / renamed forum slugs → COD product or current guides
+/dayz-cheats          /cod-hack                  301
+/dayz-cheats/         /cod-hack                  301
+/tarkov-cheats        /cod-hack                  301
+/tarkov-cheats/       /cod-hack                  301
+/forums/battleye-status   /forums/ricochet-status  301
+/forums/battleye-status/  /forums/ricochet-status  301
+/forums/raid-play-guide   /forums/ranked-play-guide 301
+/forums/raid-play-guide/  /forums/ranked-play-guide 301
+/forums/ranked-play-guide /forums/ranked-play-guide 301
+/forums/loot-run-guide    /forums/ranked-play-guide 301
+/forums/survival-guide    /forums/ranked-play-guide 301
 
 # Legacy slugs → forums
 /articles       /forums        301

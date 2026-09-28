@@ -382,7 +382,7 @@ export const BLOGS: BlogPost[] = [
     ],
   },
   {
-    slug: 'battleye-status',
+    slug: 'ricochet-status',
     title: 'COD Ricochet Status: Clear to Load vs Updating',
     excerpt:
       'What clear-to-load and Updating mean for Call of Duty hack after Ricochet and game patches — and why reports are a separate risk.',
@@ -456,7 +456,7 @@ export const BLOGS: BlogPost[] = [
     ],
   },
   {
-    slug: 'raid-play-guide',
+    slug: 'ranked-play-guide',
     title: 'Safer COD Hack Settings for Ranked and Warzone',
     excerpt:
       'Safer Call of Duty hack defaults for Ranked and Warzone — ESP-first play, mild silent aim, radar awareness and report-conscious habits.',

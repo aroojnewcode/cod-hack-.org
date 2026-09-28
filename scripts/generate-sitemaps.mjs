@@ -14,17 +14,17 @@ const SITE = (process.env.SITE_URL || 'https://codhack.org').replace(/\/$/, '')
 const TODAY = new Date().toLocaleDateString('en-CA')
 const HREFLANG = ['en', 'x-default']
 
-const HERO_FULL = '/media/dayz-hero-full.webp'
-const COVER = '/media/dayz-cover.webp'
-const BOX = '/media/dayz-box.jpg'
-const ESP = '/media/dayz-esp-gameplay.gif'
-const MENU = '/media/dayz-menu.gif'
-const CONTROL = '/media/dayz-control-art.jpg'
-const HOME_ART = '/media/dayz-home-art.jpg'
-const TACTICAL_ART = '/media/dayz-tactical-art.jpg'
-const VIDEO_THUMB = '/media/dayz-video-thumb.jpg'
-const PREVIEW_VIDEO = '/videos/dayz-preview.mp4'
-const OG_DEFAULT = '/og/dayz-cheats.jpg'
+const HERO_FULL = '/media/cod-rooftop-wide.webp'
+const COVER = '/media/cod-product-cover.webp'
+const BOX = '/media/cod-alley-esp.webp'
+const ESP = '/media/cod-esp-doorway.webp'
+const MENU = '/media/cod-spectate-reload.webp'
+const CONTROL = '/media/cod-radar-smoke.webp'
+const HOME_ART = '/media/cod-aimbot-rooftop.webp'
+const TACTICAL_ART = '/media/cod-circle-close.webp'
+const VIDEO_THUMB = '/media/cod-preview-poster.webp'
+const PREVIEW_VIDEO = '/videos/preview-loop.mp4'
+const OG_DEFAULT = '/og/cod-hack.jpg'
 
 const ALL_SITE_IMAGES = [
   HERO_FULL,
@@ -37,7 +37,7 @@ const ALL_SITE_IMAGES = [
   TACTICAL_ART,
   VIDEO_THUMB,
   '/og/home.jpg',
-  '/og/dayz-cheats.jpg',
+  '/og/cod-hack.jpg',
   '/og/forums.jpg',
   '/og/reviews.jpg',
   '/og/faq.jpg',
@@ -57,9 +57,9 @@ const FORUM_IMAGES = {
   'esp-wallhack-guide': ESP,
   'radar-hack-guide': MENU,
   'stream-proof-setup': HOME_ART,
-  'battleye-status': COVER,
+  'ricochet-status': COVER,
   'windows-setup': HERO_FULL,
-  'raid-play-guide': BOX,
+  'ranked-play-guide': BOX,
   'loader-errors': TACTICAL_ART,
 }
 
@@ -199,28 +199,28 @@ function imagesForPath(path, games, forums) {
     ]
   }
 
-  const game = games.find((g) => path === `/${g.slug}-cheats`)
+  const game = games.find((g) => path === `/${g.slug}-hack`)
   if (game) {
     return [
       {
-        src: '/og/dayz-cheats.jpg',
-        title: 'DayZ Cheats Open Graph',
-        caption: 'Google and social preview for the DayZ cheats product page.',
+        src: OG_DEFAULT,
+        title: 'COD Hack Open Graph',
+        caption: 'Google and social preview for the COD Hack product page.',
       },
       {
         src: COVER,
-        title: 'DayZ Aimbot ESP Product Artwork',
+        title: 'COD Hack Product Artwork',
         caption: 'Product features, compatibility, status and price before checkout.',
       },
       {
         src: HERO_FULL,
-        title: `${game.name} Cheats Product Hero`,
+        title: `${game.name} Hack Product Hero`,
         caption: `Hero artwork for ${game.name} Aimbot, ESP and radar hack product details.`,
       },
       {
         src: MENU,
-        title: `${game.name} Cheats Menu Preview`,
-        caption: `Menu and Aimbot settings preview for ${game.name} cheats.`,
+        title: `${game.name} Hack Menu Preview`,
+        caption: `Menu and Aimbot settings preview for ${game.name} hacks.`,
       },
       {
         src: ESP,
@@ -229,8 +229,8 @@ function imagesForPath(path, games, forums) {
       },
       {
         src: VIDEO_THUMB,
-        title: 'DayZ Cheats Preview Thumbnail',
-        caption: 'Thumbnail for the DayZ cheats preview video.',
+        title: 'COD Hack Preview Thumbnail',
+        caption: 'Thumbnail for the COD Hack preview video.',
       },
     ]
   }
@@ -239,13 +239,13 @@ function imagesForPath(path, games, forums) {
     return [
       {
         src: '/og/forums.jpg',
-        title: 'DayZ Cheats Forums Open Graph',
-        caption: 'Google preview image for the DayZ Cheats guides index.',
+        title: 'COD Hack Forums Open Graph',
+        caption: 'Google preview image for the COD Hack guides index.',
       },
       {
         src: MENU,
-        title: 'DayZ Cheats Forum Artwork',
-        caption: 'Artwork reference for DayZ setup and feature guides.',
+        title: 'COD Hack Forum Artwork',
+        caption: 'Artwork reference for COD setup and feature guides.',
       },
     ]
   }
@@ -259,14 +259,14 @@ function imagesForPath(path, games, forums) {
         title: `${forum?.title || slug} Open Graph`,
         caption:
           forum?.metaDescription ||
-          `Google preview image for ${forum?.title || slug} on dayzcheats.io.`,
+          `Google preview image for ${forum?.title || slug} on codhack.org.`,
       },
       {
         src: FORUM_IMAGES[slug] || MENU,
         title: `${forum?.title || slug} Artwork`,
         caption:
           forum?.excerpt ||
-          `Visible DayZ Cheats guide artwork for ${forum?.title || slug}.`,
+          `Visible COD Hack guide artwork for ${forum?.title || slug}.`,
       },
     ]
   }
@@ -275,8 +275,8 @@ function imagesForPath(path, games, forums) {
     return [
       {
         src: '/og/reviews.jpg',
-        title: 'DayZ Cheats Reviews Open Graph',
-        caption: 'Google preview image for DayZ cheats reviews.',
+        title: 'COD Hack Reviews Open Graph',
+        caption: 'Google preview image for COD Hack reviews.',
       },
     ]
   }
@@ -284,8 +284,8 @@ function imagesForPath(path, games, forums) {
     return [
       {
         src: '/og/faq.jpg',
-        title: 'DayZ Cheats FAQ Open Graph',
-        caption: 'Google preview image for the DayZ Cheats FAQ.',
+        title: 'COD Hack FAQ Open Graph',
+        caption: 'Google preview image for the COD Hack FAQ.',
       },
     ]
   }
@@ -293,8 +293,8 @@ function imagesForPath(path, games, forums) {
     return [
       {
         src: '/og/support.jpg',
-        title: 'DayZ Cheats Support Open Graph',
-        caption: 'Google preview image for DayZ Cheats support.',
+        title: 'COD Hack Support Open Graph',
+        caption: 'Google preview image for COD Hack support.',
       },
     ]
   }
@@ -302,8 +302,8 @@ function imagesForPath(path, games, forums) {
     return [
       {
         src: '/og/privacy.jpg',
-        title: 'DayZ Cheats Privacy Policy',
-        caption: 'Privacy policy preview for dayzcheats.io orders and support.',
+        title: 'COD Hack Privacy Policy',
+        caption: 'Privacy policy preview for codhack.org orders and support.',
       },
     ]
   }
@@ -311,8 +311,8 @@ function imagesForPath(path, games, forums) {
     return [
       {
         src: '/og/terms.jpg',
-        title: 'DayZ Cheats Terms of Use',
-        caption: 'License terms preview for DayZ Cheats.',
+        title: 'COD Hack Terms of Use',
+        caption: 'License terms preview for COD Hack.',
       },
     ]
   }
@@ -320,23 +320,23 @@ function imagesForPath(path, games, forums) {
     return [
       {
         src: '/og/refunds.jpg',
-        title: 'DayZ Cheats Refund Policy',
-        caption: 'Refund rules preview for digital DayZ Cheats licenses.',
+        title: 'COD Hack Refund Policy',
+        caption: 'Refund rules preview for digital COD Hack licenses.',
       },
     ]
   }
 
-  return [{ src: OG_DEFAULT, title: 'DayZ Cheats', caption: 'DayZ Cheats page artwork.' }]
+  return [{ src: OG_DEFAULT, title: 'COD Hack', caption: 'COD Hack page artwork.' }]
 }
 
 function videosForPath(path) {
-  if (path === '/dayz-cheats') {
+  if (path === '/cod-hack') {
     return [
       {
         thumb: VIDEO_THUMB,
-        title: 'DayZ Cheats Aimbot and ESP Preview',
+        title: 'COD Hack Aimbot and ESP Preview',
         description:
-          'Self-hosted DayZ cheats preview showing Aimbot, ESP menu and survival gameplay visuals on PC.',
+          'Self-hosted COD Hack preview showing Aimbot, ESP menu and Warzone gameplay visuals on PC.',
         content: PREVIEW_VIDEO,
       },
     ]
@@ -347,7 +347,7 @@ function videosForPath(path) {
 function collectAllPaths(games, forums, staticRoutes) {
   const paths = new Set([
     ...staticRoutes,
-    ...games.map((game) => `/${game.slug}-cheats`),
+    ...games.map((game) => `/${game.slug}-hack`),
     ...forums.map((forum) => `/forums/${forum.slug}`),
   ])
   // Never index error page
@@ -361,7 +361,7 @@ function buildSitemap(games, forums, allPaths) {
   const sorted = [...allPaths].sort((a, b) => {
     const rank = (path) => {
       if (path === '/') return 0
-      if (path.endsWith('-cheats')) return 1
+      if (path.endsWith('-hack')) return 1
       if (path === '/forums') return 2
       if (path.startsWith('/forums/')) return 3
       if (path === '/reviews') return 4
@@ -405,8 +405,8 @@ function validate(games, forums, allPaths, sitemap) {
     errors.push('Retired forum slug remains indexed')
   }
   for (const game of games) {
-    const page = join(pagesDir, `${game.slug}-cheats.astro`)
-    if (!existsSync(page)) errors.push(`Product route has no page file: /${game.slug}-cheats`)
+    const page = join(pagesDir, `${game.slug}-hack.astro`)
+    if (!existsSync(page)) errors.push(`Product route has no page file: /${game.slug}-hack`)
   }
   if (forums.length && !existsSync(join(pagesDir, 'forums', '[slug].astro'))) {
     errors.push('Forum routes have no dynamic page file: src/pages/forums/[slug].astro')
@@ -445,16 +445,13 @@ function validate(games, forums, allPaths, sitemap) {
     if (!imageLocs.includes(siteUrl(image))) errors.push(`Sitemap missing required image: ${image}`)
   }
   if (!sitemap.includes(siteUrl(PREVIEW_VIDEO))) {
-    errors.push('Sitemap missing DayZ preview video content_loc')
+    errors.push('Sitemap missing COD preview video content_loc')
   }
-  if (/Tarkov|tarkovcheats|EFT Reaper|Warzone|warzonecheats|Ricochet/i.test(sitemap)) {
-    errors.push('Sitemap still contains legacy Tarkov/Warzone labels')
+  if (/DayZ|Tarkov|tarkovcheats|BattlEye|dayzcheats|wardogshacks|theisle/i.test(sitemap)) {
+    errors.push('Sitemap still contains leftover other-game labels')
   }
-  if (!sitemap.includes('dayzcheats.io')) {
-    errors.push('Sitemap must target dayzcheats.io')
-  }
-  if (/tarkovcheats|warzonecheats|wardogshacks|theisle/i.test(sitemap)) {
-    errors.push('Sitemap contains a non-DayZ domain')
+  if (!sitemap.includes('codhack.org')) {
+    errors.push('Sitemap must target codhack.org')
   }
   if (imageLocs.length < expectedUrls.size) {
     errors.push('Image count is lower than page count - every URL needs an image')

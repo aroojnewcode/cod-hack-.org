@@ -3,7 +3,7 @@ import { join, relative } from 'node:path'
 
 const root = join(import.meta.dirname, '..')
 const dist = join(root, 'dist')
-const site = 'https://dayzcheats.io'
+const site = 'https://codhack.org'
 const failures = []
 
 function fail(message) {
@@ -73,14 +73,14 @@ for (const file of files) {
 }
 
 const home = readFileSync(join(dist, 'index.html'), 'utf8')
-const product = readFileSync(join(dist, 'dayz-cheats', 'index.html'), 'utf8')
+const product = readFileSync(join(dist, 'cod-hack', 'index.html'), 'utf8')
 const reviews = readFileSync(join(dist, 'reviews', 'index.html'), 'utf8')
 const faq = readFileSync(join(dist, 'faq', 'index.html'), 'utf8')
 const support = readFileSync(join(dist, 'support', 'index.html'), 'utf8')
 const forums = readFileSync(join(dist, 'forums', 'index.html'), 'utf8')
 
 if (
-  !home.includes('<title>DayZ Cheats | DayZ Cheat Aimbot, ESP &amp; Hacks</title>')
+  !home.includes('<title>Call of Duty Hack | COD Hack Aimbot, ESP &amp; Hacks</title>')
 ) {
   fail('Homepage does not own the exact transactional title')
 }
@@ -99,7 +99,7 @@ for (const [name, html] of [
   ['product', product],
   ['reviews', reviews],
 ]) {
-  if (!html.includes('"@id":"https://dayzcheats.io/#product"')) {
+  if (!html.includes('"@id":"https://codhack.org/#product"')) {
     fail(`${name}: missing shared Product ID`)
   }
 }
@@ -137,8 +137,8 @@ for (const file of files) {
   const twImage = html.match(/<meta name="twitter:image" content="([^"]+)"/)?.[1]
   const robotsMeta = html.match(/<meta name="robots" content="([^"]+)"/)?.[1]
 
-  if (!ogImage?.startsWith('https://dayzcheats.io/og/') || !ogImage.endsWith('.jpg')) {
-    fail(`${page}: og:image must be https://dayzcheats.io/og/*.jpg for SERP thumbnails`)
+  if (!ogImage?.startsWith('https://codhack.org/og/') || !ogImage.endsWith('.jpg')) {
+    fail(`${page}: og:image must be https://codhack.org/og/*.jpg for SERP thumbnails`)
   }
   if (!twImage || twImage !== ogImage) {
     fail(`${page}: twitter:image must match og:image`)
@@ -163,8 +163,8 @@ for (const [name, html] of [
   ['product', product],
   ['forums', forums],
 ]) {
-  if (!html.includes('/media/dayz-')) {
-    fail(`${name}: missing visible DayZ media in page body`)
+  if (!html.includes('/media/cod-')) {
+    fail(`${name}: missing visible COD media in page body`)
   }
 }
 for (const [name, html, og] of [
@@ -176,34 +176,34 @@ for (const [name, html, og] of [
     fail(`${name}: missing Open Graph image ${og}`)
   }
 }
-if (!product.includes('/videos/dayz-preview.mp4') || !product.includes('/media/dayz-video-thumb.jpg')) {
-  fail('Product page is missing the self-hosted DayZ preview video')
+if (!product.includes('/videos/preview-loop.mp4') || !product.includes('/media/cod-preview-poster.webp')) {
+  fail('Product page is missing the self-hosted COD preview video')
 }
 if (home.includes('iframe.mediadelivery.net') || product.includes('iframe.mediadelivery.net')) {
   fail('Pages still embed blocked mediadelivery video (403 off-domain)')
 }
 if (
-  /tarkovcheats|Escape from Tarkov|tarkov-reaper|warzonecheats|wardogshacks|theislecheats|\.uk\/|Delta Product|Auron Product/i.test(
+  /tarkovcheats|Escape from Tarkov|tarkov-reaper|DayZ|dayzcheats|BattlEye|wardogshacks|theislecheats|\.uk\/|Delta Product|Auron Product/i.test(
     home + product,
   )
 ) {
-  fail('Built pages still contain legacy Tarkov/Warzone branding')
+  fail('Built pages still contain leftover other-game branding')
 }
 
 const sitemap = readFileSync(join(dist, 'sitemap.xml'), 'utf8')
 if (sitemap.includes('<sitemapindex')) fail('sitemap.xml must be a single urlset, not an index')
 if (/forums\/(instructions|how-to-load)/.test(sitemap)) fail('Retired forum remains in sitemap.xml')
-if (!sitemap.includes('https://dayzcheats.io/')) {
-  fail('sitemap.xml must use https://dayzcheats.io URLs')
+if (!sitemap.includes('https://codhack.org/')) {
+  fail('sitemap.xml must use https://codhack.org URLs')
 }
-if (!sitemap.includes('/videos/dayz-preview.mp4')) {
-  fail('sitemap.xml missing DayZ preview video entry')
+if (!sitemap.includes('/videos/preview-loop.mp4')) {
+  fail('sitemap.xml missing COD preview video entry')
 }
 if (!sitemap.includes('xmlns:video=')) {
   fail('sitemap.xml missing video namespace for Google video indexing')
 }
-if (/tarkovcheats|Tarkov|warzonecheats|Delta Product|Auron Product|Ricochet/i.test(sitemap)) {
-  fail('sitemap.xml still contains legacy Tarkov/Warzone branding')
+if (/tarkovcheats|Tarkov|DayZ|dayzcheats|BattlEye|Delta Product|Auron Product/i.test(sitemap)) {
+  fail('sitemap.xml still contains leftover other-game branding')
 }
 const expectedUrls = new Set(
   files
@@ -216,16 +216,16 @@ const uniqueSitemapUrls = new Set(pageLocs)
 const imageLocs = [...sitemap.matchAll(/<image:loc>([^<]+)<\/image:loc>/g)].map((match) => match[1])
 const requiredImages = [
   '/og/home.jpg',
-  '/og/dayz-cheats.jpg',
+  '/og/cod-hack.jpg',
   '/og/forums.jpg',
   '/og/reviews.jpg',
   '/og/faq.jpg',
   '/og/support.jpg',
-  '/media/dayz-hero-full.webp',
-  '/media/dayz-cover.webp',
-  '/media/dayz-esp-gameplay.gif',
-  '/media/dayz-menu.gif',
-  '/media/dayz-video-thumb.jpg',
+  '/media/cod-rooftop-wide.webp',
+  '/media/cod-product-cover.webp',
+  '/media/cod-esp-doorway.webp',
+  '/media/cod-spectate-reload.webp',
+  '/media/cod-preview-poster.webp',
 ]
 
 for (const url of expectedUrls) {
@@ -276,7 +276,7 @@ if (!existsSync(join(dist, 'robots.txt'))) fail('dist/robots.txt is missing')
 if (!existsSync(join(dist, '_routes.json'))) fail('dist/_routes.json is missing')
 
 const robots = readFileSync(join(dist, 'robots.txt'), 'utf8')
-if (!robots.includes('Sitemap: https://dayzcheats.io/sitemap.xml')) {
+if (!robots.includes('Sitemap: https://codhack.org/sitemap.xml')) {
   fail('robots.txt must point at the canonical HTTPS sitemap')
 }
 if (!robots.includes('Allow: /sitemap.xml')) {
@@ -296,18 +296,18 @@ if (!routes.exclude?.includes('/sitemap.xml') || !routes.exclude?.includes('/rob
 
 for (const asset of [
   'public/og/home.jpg',
-  'public/og/dayz-cheats.jpg',
+  'public/og/cod-hack.jpg',
   'public/og/forums.jpg',
   'public/og/reviews.jpg',
   'public/og/faq.jpg',
   'public/og/support.jpg',
-  'public/media/dayz-hero-full.webp',
-  'public/media/dayz-cover.webp',
-  'public/media/dayz-box.jpg',
-  'public/media/dayz-esp-gameplay.gif',
-  'public/media/dayz-menu.gif',
-  'public/media/dayz-video-thumb.jpg',
-  'public/videos/dayz-preview.mp4',
+  'public/media/cod-rooftop-wide.webp',
+  'public/media/cod-product-cover.webp',
+  'public/media/cod-alley-esp.webp',
+  'public/media/cod-esp-doorway.webp',
+  'public/media/cod-spectate-reload.webp',
+  'public/media/cod-preview-poster.webp',
+  'public/videos/preview-loop.mp4',
   'public/sitemap.css',
   'public/_routes.json',
   'functions/_middleware.js',
@@ -322,11 +322,11 @@ if (!redirects.includes('/sitemap-pages.xml')) {
 if (!redirects.includes('/sitemap-index.xml')) {
   fail('_redirects missing sitemap-index.xml -> /sitemap.xml redirect')
 }
-if (!redirects.includes('/tarkov-cheats')) {
-  fail('_redirects must map the legacy /tarkov-cheats route to /dayz-cheats')
+if (!redirects.includes('/warzone-hacks')) {
+  fail('_redirects must map /warzone-hacks to /cod-hack')
 }
-if (!redirects.includes('/dayz-hacks')) {
-  fail('_redirects must map the /dayz-hacks keyword alias to /dayz-cheats')
+if (!redirects.includes('/cod-hacks')) {
+  fail('_redirects must map /cod-hacks to /cod-hack')
 }
 
 const worker = readFileSync(join(root, 'workers', 'site.js'), 'utf8')

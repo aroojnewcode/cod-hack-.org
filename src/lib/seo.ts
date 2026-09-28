@@ -126,7 +126,7 @@ export function productCoreJsonLd() {
       absoluteAsset(PAGE_MEDIA.product.image),
       absoluteAsset(PAGE_MEDIA.home.image),
       absoluteAsset(PAGE_MEDIA.forums.image),
-      absoluteAsset('/og/dayz-cheats.jpg'),
+      absoluteAsset('/og/cod-hack.jpg'),
     ],
     brand: { '@type': 'Brand', name: SITE_NAME },
     manufacturer: { '@id': `${SITE_URL}/#organization` },
@@ -138,7 +138,7 @@ export function productCoreJsonLd() {
       description:
         'Short Warzone cheat gameplay loop — silent aim Aimbot, player ESP and radar on PC.',
       thumbnailUrl: absoluteAsset('/media/cod-preview-poster.webp'),
-      contentUrl: absoluteAsset('/videos/dayz-preview.mp4'),
+      contentUrl: absoluteAsset('/videos/preview-loop.mp4'),
       uploadDate: '2026-09-16',
       inLanguage: 'en',
     },

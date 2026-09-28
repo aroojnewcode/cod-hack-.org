@@ -25,23 +25,10 @@ export const COD_HUD_MOUNT = '/media/cod-hud-mount.webp'
 export const COD_BOUNTY_HUD = '/media/cod-bounty-hud.webp'
 export const COD_ELIM_FEED = '/media/cod-elim-feed.webp'
 
-/** Legacy names used by cover helpers — now COD gameplay stills. */
-export const DAYZ_HERO = COD_ROOFTOP_WIDE
-export const DAYZ_SOLDIER = COD_AIMBOT_ROOFTOP
-export const DAYZ_COVER = COD_BUY_COVER
-export const DAYZ_BOX = COD_ALLEY_ESP
-export const DAYZ_ESP = COD_ELIM_EXPLOSION
-export const DAYZ_MENU = COD_SPECTATE_RELOAD
-export const DAYZ_GAMEPLAY = COD_ESP_DOORWAY
-export const DAYZ_HOME_ART = COD_LOOT_STAIRS
-export const DAYZ_CONTROL = COD_RADAR_SMOKE
-export const DAYZ_TACTICAL = COD_CIRCLE_CLOSE
-export const DAYZ_VIDEO_THUMB = COD_AIMBOT_ROOFTOP
-
 /** Self-hosted COD preview clip — short muted mid-video loop. */
-export const DAYZ_HOME_VIDEO = {
+export const COD_PREVIEW_VIDEO = {
   id: 'ee0735e7-c9a3-4072-b818-98e2bb7f07ff',
-  src: '/videos/dayz-preview.mp4',
+  src: '/videos/preview-loop.mp4',
   poster: '/media/cod-preview-poster.webp',
   title: 'COD Hack Aimbot and ESP preview',
   caption: 'Short Warzone cheat gameplay loop — silent aim Aimbot, player ESP and radar on PC.',
@@ -56,12 +43,12 @@ export const PAGE_MEDIA = {
   },
   product: {
     image: COD_BUY_COVER,
-    video: DAYZ_HOME_VIDEO.src,
+    video: COD_PREVIEW_VIDEO.src,
     alt: 'Call of Duty Warzone key art with a skull-masked operator for COD Hack checkout',
     title: 'Buy COD Hack for Call of Duty Warzone',
     caption: 'COD Hack product art for Warzone on PC — silent aim Aimbot, ESP and radar hack checkout.',
-    videoTitle: DAYZ_HOME_VIDEO.title,
-    videoDescription: DAYZ_HOME_VIDEO.caption,
+    videoTitle: COD_PREVIEW_VIDEO.title,
+    videoDescription: COD_PREVIEW_VIDEO.caption,
   },
   forums: {
     image: COD_RADAR_SMOKE,
@@ -144,7 +131,7 @@ const FORUM_MEDIA: Record<string, SeoMediaItem> = {
     title: 'COD Hack spectate overlay',
     caption: 'ESP boxes and radar on a spectate feed — what stream-proof settings keep out of OBS.',
   },
-  'battleye-status': {
+  'ricochet-status': {
     image: COD_CIRCLE_CLOSE,
     alt: 'Call of Duty Warzone Prison fight with ESP during a live match used to check Ricochet status',
     title: 'COD Hack live match after Ricochet check',
@@ -156,7 +143,7 @@ const FORUM_MEDIA: Record<string, SeoMediaItem> = {
     title: 'COD Hack undetected Warzone fight',
     caption: 'ESP tracking through a Warzone elimination when the product page lists clear-to-load status.',
   },
-  'raid-play-guide': {
+  'ranked-play-guide': {
     image: COD_ALLEY_ESP,
     alt: 'Call of Duty Warzone Ranked alley fight with ESP boxes on operators on the stairs',
     title: 'COD Hack Ranked and Warzone alley',
