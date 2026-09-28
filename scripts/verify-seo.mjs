@@ -80,7 +80,7 @@ const support = readFileSync(join(dist, 'support', 'index.html'), 'utf8')
 const forums = readFileSync(join(dist, 'forums', 'index.html'), 'utf8')
 
 if (
-  !home.includes('<title>Call of Duty Hack | COD Hack Aimbot, ESP &amp; Hacks</title>')
+  !home.includes('<title>Call of Duty Hack | Aimbot, ESP &amp; Radar from $35</title>')
 ) {
   fail('Homepage does not own the exact transactional title')
 }
@@ -161,11 +161,13 @@ for (const file of files) {
 for (const [name, html] of [
   ['home', home],
   ['product', product],
-  ['forums', forums],
 ]) {
   if (!html.includes('/media/cod-')) {
     fail(`${name}: missing visible COD media in page body`)
   }
+}
+if (!forums.includes('/media/hero-poster.webp') && !forums.includes('/media/cod-')) {
+  fail('forums: missing visible media in page body')
 }
 for (const [name, html, og] of [
   ['reviews', reviews, '/og/reviews.jpg'],

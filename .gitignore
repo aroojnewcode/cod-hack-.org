@@ -13,10 +13,12 @@ dist-ssr
 .npm-cache
 *.local
 
-# Astro output is produced in CI. Keep the empty folder so Wrangler can see
-# an assets directory before `[build]` fills it with the real site.
+# Astro output is produced in CI. Keep a real HTML stub so Wrangler 4 can
+# detect static files before `[build]` replaces this folder.
 dist/*
-!dist/.gitkeep
+!dist/index.html
+!dist/style.css
+!dist/app.js
 .npm-cache
 *.local
 
